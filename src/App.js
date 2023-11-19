@@ -13,10 +13,16 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-const App = (props) => {
+const App = () => {
 
-  const [tasks, setTasks] = useState(props.tasks);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
   const [filter, setFilter] = useState("All");
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
 
   const toggleTaskCompleted = (id) => {
     const updatedTasks = tasks.map(task => {
