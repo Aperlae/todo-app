@@ -15,11 +15,11 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 const App = () => {
 
-  const [tasks, setTasks] = useState(
+  const [tasks, setTasks] = useState(() =>
     JSON.parse(localStorage.getItem("tasks")) || []
   );
   const [filter, setFilter] = useState("All");
-
+  
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks])
