@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import Todo from './components/Todo';
-import Form from './components/Form';
-import FilterButton from './components/FilterButton';
+import Navbar from "./components/Navbar";
+import Todo from "./components/Todo";
+import Form from "./components/Form";
+import FilterButton from "./components/FilterButton";
 import { nanoid } from "nanoid";
 import usePrevious from "./usePrev";
 
@@ -84,7 +85,6 @@ const App = () => {
     setTasks([...tasks, newTask]);
   };
 
-
   const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
   
@@ -100,7 +100,7 @@ const App = () => {
 
   return (
     <div className="todoapp stack-large">
-      <h1>TodoMatic</h1>
+      <Navbar />
       <Form onSubmit={addTask} />
       <div className="filters btn-group stack-exception">
         {filterList}
