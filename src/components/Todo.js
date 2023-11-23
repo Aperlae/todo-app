@@ -29,7 +29,7 @@ const Todo = (props) => {
                     New name for {props.name}
                 </label>
                 <input id={props.id} 
-                    className="todo-text" 
+                    className={props.darkMode ? "todo-text dark" : "todo-text light"} 
                     type="text"
                     value={newName}
                     onChange={handleChange}

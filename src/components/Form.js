@@ -27,7 +27,7 @@ const Form = (props) => {
             <input
                 type="text"
                 id="new-todo-input"
-                className="input input__lg"
+                className={props.darkMode ? "input input__lg dark" : "input input__lg light"}
                 name="text"
                 autoComplete="off"
                 value={name}

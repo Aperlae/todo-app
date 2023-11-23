@@ -20,6 +20,11 @@ const App = () => {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
   const [filter, setFilter] = useState("All");
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(prevDarkMode => !prevDarkMode);
+  };
   
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -66,6 +71,7 @@ const App = () => {
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
+        darkMode={darkMode}
       />
     )
   );
@@ -75,6 +81,7 @@ const App = () => {
       name={name}
       isPressed={name === filter}
       setFilter={setFilter} 
+      darkMode={darkMode}
     />
   ));
 
@@ -99,9 +106,9 @@ const App = () => {
   }, [tasks.length, prevTaskLength]);
 
   return (
-    <div className="todoapp stack-large">
-      <Navbar />
-      <Form onSubmit={addTask} />
+    <div className={darkMode ? "todoapp stack-large dark" : "todoapp stack-large light"}>
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Form onSubmit={addTask} darkMode={darkMode}/>
       <div className="filters btn-group stack-exception">
         {filterList}
       </div>

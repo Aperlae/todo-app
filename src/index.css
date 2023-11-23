@@ -63,6 +63,10 @@ input[type="text"] {
   border-radius: 0;
 }
 
+input[type="text"].dark {
+  background-color: #cecdcd;
+}
+
 body {
   width: 100%;
   max-width: 68rem;
@@ -100,9 +104,17 @@ body {
   border-color: #d3d3d3;
 }
 
+.btn.toggle-btn.dark {
+  border-color: #585858;
+}
+
 .btn.toggle-btn[aria-pressed="true"] {
   text-decoration: underline;
   border-color: #4d4d4d;
+}
+
+.btn.toggle-btn[aria-pressed="true"].dark {
+  border-color: #FFF;
 }
 
 .btn__danger {
@@ -177,6 +189,50 @@ body {
 }
 
 /* END GLOBAL STYLES */
+
+/* LIGHT/DARK MODE TOGGLER */
+
+.toggler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggler p {
+  font-weight: 600;
+}
+
+.toggler--slider {
+  width: 25px;
+  height: 13px;
+  background-color: #2B283A;
+  border: 1px solid black;
+  border-radius: 2rem;
+  margin: 0 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: content-box;
+}
+
+.toggler--slider--circle {
+  width: 13px;
+  height: 13px;
+  background-color: #FFF;
+  border-radius: 50%;
+}
+
+.toggler--light {
+  color: #2B382A;
+}
+
+.toggler--dark {
+  color: #D5D4D8;
+}
+
+/* TODO APP */
+
 .todoapp {
   background: #fff;
   margin: 2rem 0 4rem 0;
@@ -185,6 +241,32 @@ body {
   box-shadow:
     0 2px 4px 0 rgba(0, 0, 0, 0.2),
     0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.todoapp.dark{
+  background-color: #21222A;
+  color: #FFF;
+}
+
+.todoapp.dark .toggler--slider {
+  border-color: #FFF;
+  background-color: #F5F5F5;
+}
+
+.todoapp.dark .toggler--slider--circle {
+  background-color: #000;
+}
+
+.todoapp.dark .toggler--light {
+  color: #918E9B;
+}
+
+.todoapp.dark .toggler--dark {
+  color: #FFF;
+}
+
+.todoapp.dark .toggler--slider{
+  justify-content: flex-end;
 }
 
 @media screen and (min-width: 550px) {
@@ -199,16 +281,16 @@ body {
   margin-right: auto;
 }
 
-.todoapp>form {
-  max-width: 100%;
-}
-
-.todoapp>h1 {
+nav>h1 {
   display: block;
   max-width: 100%;
   text-align: center;
   margin: 0;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
+}
+
+.todoapp>form {
+  max-width: 100%;
 }
 
 .label__lg {
